@@ -1,7 +1,5 @@
 import hashlib
 import os
-from wsgiref.simple_server import make_server
-
 import easyocr
 from flask import Flask
 from flask_restful import Api, Resource, reqparse
@@ -38,10 +36,8 @@ if __name__ == '__main__':
     api = Api(app)
 
     api.add_resource(OCRRestfulApi, "/doOCR")
-    server = make_server(('0.0.0.0', 88), app)
-    server.serve_forever()
 
-    # app.run(
-    #     host='0.0.0.0',
-    #     port=88,
-    #     debug=True)
+    app.run(
+        host='0.0.0.0',
+        port=88,
+        debug=True)
